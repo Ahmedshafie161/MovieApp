@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/blankFragment3">
+    <fragment
+        android:id="@+id/blankFragment3"
+        android:name="com.example.movieapp.BlankFragment"
+        android:label="BlankFragment" >
+        <action
+            android:id="@+id/action_blankFragment3_to_blankFragmentSec3"
+            app:destination="@id/blankFragmentSec3" />
+    </fragment>
+    <fragment
+        android:id="@+id/blankFragmentSec3"
+        android:name="com.example.movieapp.BlankFragmentSec"
+        android:label="BlankFragmentSec" />
+</navigation>
