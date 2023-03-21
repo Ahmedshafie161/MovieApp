@@ -19,8 +19,9 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class BlankFragmentSec : Fragment() {
-    lateinit var fragmentBlankSecBinding:FragmentBlankSecBinding
-    val customAdapter=CustomAdapter(ArrayList())
+    lateinit var fragmentBlankSecBinding: FragmentBlankSecBinding
+    val customAdapter = CustomAdapter(ArrayList())
+
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -38,7 +39,7 @@ class BlankFragmentSec : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        fragmentBlankSecBinding= FragmentBlankSecBinding.inflate(layoutInflater)
+        fragmentBlankSecBinding = FragmentBlankSecBinding.inflate(layoutInflater)
         return fragmentBlankSecBinding.root
     }
 
@@ -63,10 +64,15 @@ class BlankFragmentSec : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        RetrofitClient.getMovies(
+            "Lucifer",
+            1,
+            "3e353d90"
+        ) { movieItems: ArrayList<MovieItem> -> customAdapter.updateList(movieItems) }
         super.onViewCreated(view, savedInstanceState)
         fragmentBlankSecBinding.recyclerView.apply {
-            layoutManager=GridLayoutManager(activity,1,GridLayoutManager.VERTICAL,false)
-            adapter= customAdapter
+            layoutManager = GridLayoutManager(activity, 1, GridLayoutManager.VERTICAL, false)
+            adapter = customAdapter
         }
     }
 }
